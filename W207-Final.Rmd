@@ -5,8 +5,13 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-data <- read.csv("train_data.csv", header=TRUE, sep=",")
+library(skimr)
+library(tidyverse)
+library(caret)
+library(leaps)
+library(MASS)
+data <- read.csv("train.csv", header=TRUE, sep=",")
+newData <- read.csv("train_new.csv", header=TRUE, sep=",")
 ```
 
 ## R Markdown
@@ -16,8 +21,8 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r cars}
-data
-
+hist(data$SalePrice)
+newData
 ```
 
 ## Including Plots
@@ -25,7 +30,20 @@ data
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+lmMod <- lm(SalePrice ~ . , data = newData)
+selectedMod <- step(lmMod, trace = FALSE, direction = "both")
+summary(selectedMod)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r pressure, echo=FALSE}
+pval <- 0.05
+# summary(selectedMod)$coefficients[,4]
+bonf.corrected <-  0.05/length(summary(selectedMod)$coefficients[,4] )
+add.in.model <- summary(selectedMod)$coefficients[,4] < bonf.corrected 
+# add.in.model
+# The amount that are TRUE
+length(which(add.in.model==TRUE))
+which(add.in.model==TRUE)
+```
+
