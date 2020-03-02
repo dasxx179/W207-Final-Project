@@ -1,0 +1,265 @@
+---
+title: "Project"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(caret)
+library(leaps)
+library(psych)
+library(skimr)
+library(MASS)
+library(leaps)
+data <- read.csv("train_data.csv", header=TRUE, sep=",")
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+data
+# Explore Sale Price, we can see a strong right skew
+hist(data$SalePrice)
+
+```
+
+```{r pressure, echo=FALSE}
+skim(data)
+
+# From this, we know th drop Alley, PoolQC
+
+# Ones to consider: MasVnrType, BsmtQual, BsmtCond, BsmtExposure, BsmtFinType1, BsmtFinType2, Electrical, FireplaceQu, GarageType, PoolQC, Fence, MiscFeature
+
+# Numerial varibales: LotFrontage, GarageYrBlt, GarageYrBlt
+```
+
+
+```{r pressure, echo=FALSE}
+# Start with numerical variables
+# data
+# LotFrontage - "Linear feet of street connected to property"
+describe(data$LotFrontage)
+
+# Year Garage Built
+describe(data$GarageYrBlt)
+
+# Masonry veneer area in square feet
+describe(data$MasVnrArea)
+
+# Transforming the values, drop, median, 0
+data <- data[, !names(data) %in% c("LotFrontage")]
+data$GarageYrBlt[is.na(data$GarageYrBlt)] <- median(data$GarageYrBlt, na.rm=TRUE)
+data$MasVnrArea[is.na(data$MasVnrArea)] <- 0
+
+```
+Do we perhaphs take LotFrontage out? N is only 1201 of 1406. 
+YrBuilt Garage to median.
+MasVnrArea to 0.
+
+
+
+```{r pressure, echo=FALSE}
+# To categorical variables
+# Ones to consider: MasVnrType, BsmtQual, BsmtCond, BsmtExposure, BsmtFinType1, BsmtFinType2, Electrical, FireplaceQu, GarageType, PoolQC, Fence, MiscFeature
+
+# Masonry veneer type - Change NA's to None
+summary(data$MasVnrType)
+
+# Basement Char:
+  #        Ex	Excellent (100+ inches)	
+#        Gd	Good (90-99 inches)
+#        TA	Typical (80-89 inches)
+#        Fa	Fair (70-79 inches)
+#        Po	Poor (<70 inches
+#        NA	No Basement
+  
+  
+# BsmtQual: Evaluates the height of the basement
+# Change Na's to NA
+summary(data$BsmtQual)
+
+# BsmtCond: Evaluates the general condition of the basement - Change Na's to NA
+ # Change Na's to NA
+summary(data$BsmtCond)
+
+# BsmtExposure: Refers to walkout or garden level walls
+ # Change Na's to NA
+summary(data$BsmtExposure)
+
+# BsmtFinType1: Rating of basement finished area
+ # Change Na's to NA
+summary(data$BsmtFinType1)
+
+# BsmtFinType2: Rating of basement finished area (if multiple types)
+#  Change Na's to NA
+summary(data$BsmtFinType2)
+
+# Electrical: Electrical system
+       # SBrkr	Standard Circuit Breakers & Romex
+       # FuseA	Fuse Box over 60 AMP and all Romex wiring (Average)	
+       # FuseF	60 AMP Fuse Box and mostly Romex wiring (Fair)
+       # FuseP	60 AMP Fuse Box and mostly knob & tube wiring (poor)
+       # Mix	Mixed
+# Change NA to Mix
+summary(data$Electrical)
+
+# FireplaceQu
+# FireplaceQu: Fireplace quality
+# 
+#        Ex	Excellent - Exceptional Masonry Fireplace
+#        Gd	Good - Masonry Fireplace in main level
+#        TA	Average - Prefabricated Fireplace in main living area or Masonry Fireplace in basement
+#        Fa	Fair - Prefabricated Fireplace in basement
+#        Po	Poor - Ben Franklin Stove
+#        NA	No Fireplace
+# Change NAs to NA
+summary(data$FireplaceQu)
+
+# Change all Garage Nas to NA. There are 81 to be precise
+summary(data$GarageType)
+summary(data$GarageFinish)
+summary(data$GarageQual)
+summary(data$GarageCond)
+
+# PoolQC: Pool quality
+# 		
+#        Ex	Excellent
+#        Gd	Good
+#        TA	Average/Typical
+#        Fa	Fair
+#        NA	No Pool
+# Change NA's to NA
+summary(data$PoolQC)
+
+# Fence: Fence quality
+# 		
+#        GdPrv	Good Privacy
+#        MnPrv	Minimum Privacy
+#        GdWo	Good Wood
+#        MnWw	Minimum Wood/Wire
+#        NA	No Fence
+# Change NA's to NA
+summary(data$Fence)
+
+# MiscFeature: Miscellaneous feature not covered in other categories
+# 		
+#        Elev	Elevator
+#        Gar2	2nd Garage (if not described in garage section)
+#        Othr	Other
+#        Shed	Shed (over 100 SF)
+#        TenC	Tennis Court
+#        NA	None
+# Change NA's to NA
+summary(data$MiscFeature)
+
+```
+
+```{r pressure, echo=FALSE}
+# First drop Alley
+data <- data[, !names(data) %in% c("Alley")]
+# summary(data$BsmtQual)
+# Change NA's to None
+# levels(data$MasVnrType) <- c(levels(data$MasVnrType), "NA")
+data$MasVnrType[is.na(data$MasVnrType)] <- "None"
+
+# summary(data$MasVnrType)
+levels(data$BsmtQual) <- c(levels(data$BsmtQual), "NA")
+data$BsmtQual[is.na(data$BsmtQual)] <- "NA"
+
+levels(data$BsmtCond) <- c(levels(data$BsmtCond), "NA")
+data$BsmtCond[is.na(data$BsmtCond)] <- "NA"
+
+levels(data$BsmtExposure) <- c(levels(data$BsmtExposure), "NA")
+data$BsmtExposure[is.na(data$BsmtExposure)] <- "NA"
+
+levels(data$BsmtFinType1) <- c(levels(data$BsmtFinType1), "NA")
+data$BsmtFinType1[is.na(data$BsmtFinType1)] <- "NA"
+
+levels(data$BsmtFinType2) <- c(levels(data$BsmtFinType2), "NA")
+data$BsmtFinType2[is.na(data$BsmtFinType2)] <- "NA"
+
+data$Electrical[is.na(data$Electrical)] <- "Mix"
+
+levels(data$FireplaceQu) <- c(levels(data$FireplaceQu), "NA")
+data$FireplaceQu[is.na(data$FireplaceQu)] <- "NA"
+
+levels(data$GarageType) <- c(levels(data$GarageType), "NA")
+data$GarageType[is.na(data$GarageType)] <- "NA"
+
+levels(data$GarageFinish) <- c(levels(data$GarageFinish), "NA")
+data$GarageFinish[is.na(data$GarageFinish)] <- "NA"
+
+levels(data$GarageQual) <- c(levels(data$GarageQual), "NA")
+data$GarageQual[is.na(data$GarageQual)] <- "NA"
+
+levels(data$GarageCond) <- c(levels(data$GarageCond), "NA")
+data$GarageCond[is.na(data$GarageCond)] <- "NA"
+
+levels(data$PoolQC) <- c(levels(data$PoolQC), "NA")
+data$PoolQC[is.na(data$PoolQC)] <- "NA"
+
+levels(data$Fence) <- c(levels(data$Fence), "NA")
+data$Fence[is.na(data$Fence)] <- "NA"
+
+levels(data$MiscFeature) <- c(levels(data$MiscFeature), "NA")
+data$MiscFeature[is.na(data$MiscFeature)] <- "NA"
+```
+
+```{r pressure, echo=FALSE}
+
+skim(data)
+```
+
+```{r pressure, echo=FALSE}
+
+
+# newdata <- data[, 1:10]
+# newdata <- subset(newdata, select = -c(7))
+# 
+# newdata <- cbind(newdata, "SalePrice" = data$SalePrice)
+# 
+# new <- data[, 1:70]
+# new <- cbind(new, "SalePrice" = data$SalePrice)
+# 
+# new
+lmMod <- lm(SalePrice ~ . , data = data)
+selectedMod <- step(lmMod, trace = FALSE, direction = "both")
+summary(selectedMod)
+
+
+# full.model <- regsubsets(SalePrice ~., data = new, method="forward")
+# summary(full.model)
+
+# step.model <- stepAIC(full.model, direction = "both", 
+#                       trace = TRUE)
+
+# summary(step.model)
+
+```
+
+```{r pressure, echo=FALSE}
+# Manual Bonferroni Correction
+pval <- 0.05
+# summary(selectedMod)$coefficients[,4]
+bonf.corrected <-  0.05/length(summary(selectedMod)$coefficients[,4] )
+
+add.in.model <- summary(selectedMod)$coefficients[,4] < bonf.corrected 
+# add.in.model
+
+# The amount that are TRUE
+length(which(add.in.model==TRUE))
+which(add.in.model==TRUE)
+```
+
+```{r pressure, echo=FALSE}
+```
+
