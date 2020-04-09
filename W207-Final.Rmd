@@ -58,7 +58,6 @@ which(add.in.model==TRUE)
                   28                   32                   33                   35 
        LandSlope_Gtl        LandSlope_Mod Neighborhood_BrkSide Neighborhood_Crawfor 
                   40                   41                   44                   45 
-Neighborhood_Edwards Neighborhood_StoneBr    Condition1_Artery      Condition1_RRAe 
                   46                   52                   53                   55 
        OverallCond_3        OverallCond_4        OverallCond_5        OverallCond_6 
                   62                   63                   64                   65 
@@ -67,3 +66,4 @@ Neighborhood_Edwards Neighborhood_StoneBr    Condition1_Artery      Condition1_R
       Functional_Mod    GarageType_2Types        GarageQual_Ex SaleCondition_Normal 
                  115                  118                  119                  132 
 ```
+
