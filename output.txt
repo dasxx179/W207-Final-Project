@@ -1,0 +1,467 @@
+Call:
+lm(formula = SalePrice ~ LotArea + OverallQual + YearBuilt + 
+    YearRemodAdd + BsmtFinSF2 + BsmtUnfSF + TotalBsmtSF + X1stFlrSF + 
+    X2ndFlrSF + GrLivArea + BsmtFullBath + FullBath + HalfBath + 
+    KitchenAbvGr + Fireplaces + GarageCars + GarageArea + WoodDeckSF + 
+    OpenPorchSF + EnclosedPorch + ScreenPorch + PoolArea + MiscVal + 
+    Haspool + HasGarage + MSSubClass_120 + MSSubClass_160 + MSSubClass_20 + 
+    MSSubClass_45 + MSSubClass_60 + MSZoning_C..all. + MSZoning_FV + 
+    MSZoning_RH + MSZoning_RL + LotShape_IR1 + LotConfig_Corner + 
+    LotConfig_CulDSac + LotConfig_FR2 + LandSlope_Gtl + LandSlope_Mod + 
+    Neighborhood_Blueste + Neighborhood_BrDale + Neighborhood_BrkSide + 
+    Neighborhood_Crawfor + Neighborhood_Edwards + Neighborhood_Mitchel + 
+    Neighborhood_NAmes + Neighborhood_NWAmes + Neighborhood_NoRidge + 
+    Neighborhood_NridgHt + Neighborhood_StoneBr + Condition1_Artery + 
+    Condition1_Feedr + Condition1_RRAe + Condition1_RRAn + Condition2_Artery + 
+    Condition2_PosA + Condition2_RRAe + HouseStyle_1.5Unf + HouseStyle_1Story + 
+    OverallCond_3 + OverallCond_4 + OverallCond_5 + OverallCond_6 + 
+    OverallCond_7 + OverallCond_8 + RoofStyle_Flat + RoofStyle_Gable + 
+    RoofStyle_Gambrel + RoofStyle_Hip + RoofStyle_Mansard + RoofMatl_Membran + 
+    RoofMatl_Metal + Exterior1st_BrkComm + Exterior1st_BrkFace + 
+    Exterior1st_CemntBd + Exterior1st_HdBoard + Exterior1st_Plywood + 
+    Exterior1st_Wd.Sdng + Exterior2nd_Brk.Cmn + Exterior2nd_CmentBd + 
+    Exterior2nd_Wd.Sdng + MasVnrType_BrkCmn + MasVnrType_BrkFace + 
+    MasVnrType_None + ExterCond_Gd + ExterCond_Po + Foundation_BrkTil + 
+    Foundation_CBlock + Foundation_PConc + Foundation_Slab + 
+    Foundation_Stone + BsmtQual_Ex + BsmtQual_Fa + BsmtCond_Fa + 
+    BsmtCond_Po + BsmtExposure_Gd + BsmtFinType1_ALQ + BsmtFinType1_BLQ + 
+    BsmtFinType1_GLQ + BsmtFinType2_ALQ + Heating_Floor + Heating_GasA + 
+    Heating_Grav + HeatingQC_Ex + CentralAir_N + Electrical_FuseA + 
+    Electrical_FuseP + KitchenQual_Ex + Functional_Maj1 + Functional_Maj2 + 
+    Functional_Min1 + Functional_Min2 + Functional_Mod + Functional_Sev + 
+    FireplaceQu_Fa + GarageType_2Types + GarageQual_Ex + GarageQual_Fa + 
+    GarageCond_Ex + GarageCond_Fa + Fence_GdWo + MiscFeature_Gar2 + 
+    MiscFeature_Shed + MoSold_5 + MoSold_6 + MoSold_7 + YrSold_2009 + 
+    SaleType_New + SaleCondition_AdjLand + SaleCondition_Normal + 
+    Alley_Pave + GarageType_Detchd + MSSubClass_90 + SaleType_WD + 
+    SaleType_COD, data = newData)
+
+Residuals:
+     Min       1Q   Median       3Q 
+-0.67718 -0.04173  0.00192  0.04813 
+     Max 
+ 0.38396 
+
+Coefficients:
+                        Estimate
+(Intercept)            2.665e+00
+LotArea                4.059e-02
+OverallQual            3.816e-02
+YearBuilt              2.137e-03
+YearRemodAdd           8.964e-04
+BsmtFinSF2            -2.887e-03
+BsmtUnfSF             -8.580e-04
+TotalBsmtSF            1.672e-04
+X1stFlrSF              1.766e-01
+X2ndFlrSF              1.217e-04
+GrLivArea              1.633e-01
+BsmtFullBath           1.590e-02
+FullBath               2.446e-02
+HalfBath               2.188e-02
+KitchenAbvGr          -9.829e-02
+Fireplaces             2.085e-02
+GarageCars             2.709e-02
+GarageArea             6.194e-05
+WoodDeckSF             4.307e-04
+OpenPorchSF            7.647e-04
+EnclosedPorch          1.732e-03
+ScreenPorch            1.750e-03
+PoolArea               1.193e+00
+MiscVal               -1.226e-02
+Haspool               -6.464e+00
+HasGarage              2.554e-02
+MSSubClass_120         2.731e-02
+MSSubClass_160        -9.610e-02
+MSSubClass_20          2.098e-02
+MSSubClass_45         -1.677e-01
+MSSubClass_60         -3.747e-02
+MSZoning_C..all.      -3.835e-01
+MSZoning_FV            1.298e-01
+MSZoning_RH            6.730e-02
+MSZoning_RL            5.280e-02
+LotShape_IR1          -1.072e-02
+LotConfig_Corner       1.199e-02
+LotConfig_CulDSac      3.245e-02
+LotConfig_FR2         -2.316e-02
+LandSlope_Gtl          1.441e-01
+LandSlope_Mod          1.612e-01
+Neighborhood_Blueste   1.204e-01
+Neighborhood_BrDale    8.002e-02
+Neighborhood_BrkSide   5.542e-02
+Neighborhood_Crawfor   1.289e-01
+Neighborhood_Edwards  -5.139e-02
+Neighborhood_Mitchel  -4.402e-02
+Neighborhood_NAmes    -1.484e-02
+Neighborhood_NWAmes   -3.292e-02
+Neighborhood_NoRidge   5.594e-02
+Neighborhood_NridgHt   4.934e-02
+Neighborhood_StoneBr   1.222e-01
+Condition1_Artery     -8.333e-02
+Condition1_Feedr      -3.919e-02
+Condition1_RRAe       -1.506e-01
+Condition1_RRAn       -3.236e-02
+Condition2_Artery     -1.578e-01
+Condition2_PosA        2.635e-01
+Condition2_RRAe       -5.101e-01
+HouseStyle_1.5Unf      2.038e-01
+HouseStyle_1Story     -2.399e-02
+OverallCond_3         -2.664e-01
+OverallCond_4         -1.839e-01
+OverallCond_5         -1.410e-01
+OverallCond_6         -1.019e-01
+OverallCond_7         -6.017e-02
+OverallCond_8         -4.646e-02
+RoofStyle_Flat        -2.796e-01
+RoofStyle_Gable       -2.732e-01
+RoofStyle_Gambrel     -3.101e-01
+RoofStyle_Hip         -2.681e-01
+RoofStyle_Mansard     -2.429e-01
+RoofMatl_Membran       3.475e-01
+RoofMatl_Metal         1.835e-01
+Exterior1st_BrkComm   -2.713e-01
+Exterior1st_BrkFace    5.368e-02
+Exterior1st_CemntBd   -9.234e-02
+Exterior1st_HdBoard   -2.263e-02
+Exterior1st_Plywood   -2.013e-02
+Exterior1st_Wd.Sdng   -5.311e-02
+Exterior2nd_Brk.Cmn    1.122e-01
+Exterior2nd_CmentBd    8.050e-02
+Exterior2nd_Wd.Sdng    3.657e-02
+MasVnrType_BrkCmn     -5.632e-02
+MasVnrType_BrkFace    -2.530e-02
+MasVnrType_None       -3.429e-02
+ExterCond_Gd          -1.764e-02
+ExterCond_Po          -2.268e-01
+Foundation_BrkTil      1.190e-01
+Foundation_CBlock      1.409e-01
+Foundation_PConc       1.518e-01
+Foundation_Slab        1.483e-01
+Foundation_Stone       2.254e-01
+BsmtQual_Ex            3.914e-02
+BsmtQual_Fa            2.781e-02
+BsmtCond_Fa           -3.424e-02
+BsmtCond_Po           -1.961e-01
+BsmtExposure_Gd        5.424e-02
+BsmtFinType1_ALQ       2.241e-02
+BsmtFinType1_BLQ       1.976e-02
+BsmtFinType1_GLQ       2.783e-02
+BsmtFinType2_ALQ       3.856e-02
+Heating_Floor         -1.635e-01
+Heating_GasA          -4.639e-02
+Heating_Grav          -2.160e-01
+HeatingQC_Ex           2.406e-02
+CentralAir_N          -4.163e-02
+Electrical_FuseA       1.942e-02
+Electrical_FuseP      -9.254e-02
+KitchenQual_Ex         7.199e-02
+Functional_Maj1       -5.742e-02
+Functional_Maj2       -2.676e-01
+Functional_Min1       -3.978e-02
+Functional_Min2       -5.185e-02
+Functional_Mod        -1.399e-01
+Functional_Sev        -3.443e-01
+FireplaceQu_Fa        -3.122e-02
+GarageType_2Types     -1.624e-01
+GarageQual_Ex          3.758e-01
+GarageQual_Fa         -2.837e-02
+GarageCond_Ex         -2.676e-01
+GarageCond_Fa         -4.231e-02
+Fence_GdWo            -2.624e-02
+MiscFeature_Gar2       1.995e-01
+MiscFeature_Shed       7.988e-02
+MoSold_5               1.584e-02
+MoSold_6               1.705e-02
+MoSold_7               1.464e-02
+YrSold_2009           -1.408e-02
+SaleType_New           3.485e-02
+SaleCondition_AdjLand  1.194e-01
+SaleCondition_Normal   5.291e-02
+Alley_Pave             2.703e-02
+GarageType_Detchd      1.422e-02
+MSSubClass_90         -3.682e-02
+SaleType_WD           -6.036e-02
+SaleType_COD          -5.414e-02
+                      Std. Error t value
+(Intercept)            6.328e-01   4.212
+LotArea                3.901e-03  10.404
+OverallQual            3.841e-03   9.934
+YearBuilt              2.649e-04   8.070
+YearRemodAdd           2.066e-04   4.340
+BsmtFinSF2             9.796e-04  -2.947
+BsmtUnfSF              1.381e-04  -6.214
+TotalBsmtSF            1.556e-05  10.746
+X1stFlrSF              4.559e-02   3.873
+X2ndFlrSF              2.036e-05   5.977
+GrLivArea              3.308e-02   4.938
+BsmtFullBath           7.170e-03   2.218
+FullBath               8.476e-03   2.886
+HalfBath               8.357e-03   2.618
+KitchenAbvGr           3.698e-02  -2.658
+Fireplaces             5.238e-03   3.981
+GarageCars             8.716e-03   3.108
+GarageArea             2.888e-05   2.144
+WoodDeckSF             1.251e-04   3.442
+OpenPorchSF            4.029e-04   1.898
+EnclosedPorch          6.819e-04   2.540
+ScreenPorch            4.120e-04   4.249
+PoolArea               4.440e-01   2.687
+MiscVal                7.452e-03  -1.645
+Haspool                2.459e+00  -2.629
+HasGarage              1.635e-02   1.562
+MSSubClass_120         1.907e-02   1.432
+MSSubClass_160         2.360e-02  -4.072
+MSSubClass_20          1.425e-02   1.472
+MSSubClass_45          8.754e-02  -1.916
+MSSubClass_60          1.454e-02  -2.578
+MSZoning_C..all.       3.349e-02 -11.451
+MSZoning_FV            1.800e-02   7.210
+MSZoning_RH            2.595e-02   2.594
+MSZoning_RL            1.044e-02   5.058
+LotShape_IR1           5.966e-03  -1.798
+LotConfig_Corner       6.910e-03   1.736
+LotConfig_CulDSac      1.147e-02   2.830
+LotConfig_FR2          1.480e-02  -1.565
+LandSlope_Gtl          3.550e-02   4.059
+LandSlope_Mod          3.670e-02   4.392
+Neighborhood_Blueste   7.102e-02   1.696
+Neighborhood_BrDale    3.189e-02   2.509
+Neighborhood_BrkSide   1.548e-02   3.579
+Neighborhood_Crawfor   1.630e-02   7.908
+Neighborhood_Edwards   1.184e-02  -4.339
+Neighborhood_Mitchel   1.528e-02  -2.881
+Neighborhood_NAmes     9.736e-03  -1.524
+Neighborhood_NWAmes    1.386e-02  -2.376
+Neighborhood_NoRidge   1.770e-02   3.161
+Neighborhood_NridgHt   1.460e-02   3.380
+Neighborhood_StoneBr   2.156e-02   5.669
+Condition1_Artery      1.583e-02  -5.264
+Condition1_Feedr       1.184e-02  -3.310
+Condition1_RRAe        2.980e-02  -5.053
+Condition1_RRAn        1.984e-02  -1.631
+Condition2_Artery      8.521e-02  -1.852
+Condition2_PosA        1.013e-01   2.601
+Condition2_RRAe        1.718e-01  -2.968
+HouseStyle_1.5Unf      8.491e-02   2.401
+HouseStyle_1Story      1.514e-02  -1.584
+OverallCond_3          3.169e-02  -8.407
+OverallCond_4          2.619e-02  -7.021
+OverallCond_5          2.308e-02  -6.109
+OverallCond_6          2.279e-02  -4.471
+OverallCond_7          2.207e-02  -2.726
+OverallCond_8          2.359e-02  -1.970
+RoofStyle_Flat         1.060e-01  -2.638
+RoofStyle_Gable        1.022e-01  -2.672
+RoofStyle_Gambrel      1.066e-01  -2.910
+RoofStyle_Hip          1.024e-01  -2.618
+RoofStyle_Mansard      1.091e-01  -2.226
+RoofMatl_Membran       1.096e-01   3.170
+RoofMatl_Metal         1.053e-01   1.743
+Exterior1st_BrkComm    9.057e-02  -2.995
+Exterior1st_BrkFace    1.592e-02   3.372
+Exterior1st_CemntBd    5.809e-02  -1.590
+Exterior1st_HdBoard    8.698e-03  -2.602
+Exterior1st_Plywood    1.194e-02  -1.686
+Exterior1st_Wd.Sdng    1.581e-02  -3.358
+Exterior2nd_Brk.Cmn    4.870e-02   2.303
+Exterior2nd_CmentBd    5.853e-02   1.375
+Exterior2nd_Wd.Sdng    1.567e-02   2.334
+MasVnrType_BrkCmn      2.819e-02  -1.998
+MasVnrType_BrkFace     1.084e-02  -2.333
+MasVnrType_None        1.121e-02  -3.059
+ExterCond_Gd           9.261e-03  -1.905
+ExterCond_Po           1.069e-01  -2.121
+Foundation_BrkTil      5.722e-02   2.080
+Foundation_CBlock      5.632e-02   2.503
+Foundation_PConc       5.590e-02   2.715
+Foundation_Slab        6.149e-02   2.412
+Foundation_Stone       7.038e-02   3.202
+BsmtQual_Ex            1.255e-02   3.118
+BsmtQual_Fa            1.885e-02   1.475
+BsmtCond_Fa            1.629e-02  -2.102
+BsmtCond_Po            8.163e-02  -2.402
+BsmtExposure_Gd        1.064e-02   5.096
+BsmtFinType1_ALQ       9.147e-03   2.450
+BsmtFinType1_BLQ       9.828e-03   2.011
+BsmtFinType1_GLQ       9.135e-03   3.046
+BsmtFinType2_ALQ       2.462e-02   1.566
+Heating_Floor          1.020e-01  -1.602
+Heating_GasA           2.298e-02  -2.018
+Heating_Grav           4.499e-02  -4.801
+HeatingQC_Ex           6.873e-03   3.500
+CentralAir_N           1.390e-02  -2.995
+Electrical_FuseA       1.139e-02   1.704
+Electrical_FuseP       6.261e-02  -1.478
+KitchenQual_Ex         1.291e-02   5.578
+Functional_Maj1        2.852e-02  -2.013
+Functional_Maj2        4.645e-02  -5.760
+Functional_Min1        1.859e-02  -2.140
+Functional_Min2        1.797e-02  -2.886
+Functional_Mod         2.941e-02  -4.759
+Functional_Sev         1.057e-01  -3.256
+FireplaceQu_Fa         1.749e-02  -1.785
+GarageType_2Types      4.222e-02  -3.847
+GarageQual_Ex          1.007e-01   3.731
+GarageQual_Fa          1.751e-02  -1.620
+GarageCond_Ex          1.216e-01  -2.201
+GarageCond_Fa          2.013e-02  -2.102
+Fence_GdWo             1.391e-02  -1.886
+MiscFeature_Gar2       1.242e-01   1.605
+MiscFeature_Shed       5.116e-02   1.561
+MoSold_5               7.840e-03   2.020
+MoSold_6               7.168e-03   2.378
+MoSold_7               7.384e-03   1.983
+YrSold_2009            6.120e-03  -2.300
+SaleType_New           2.273e-02   1.533
+SaleCondition_AdjLand  5.581e-02   2.139
+SaleCondition_Normal   9.661e-03   5.477
+Alley_Pave             1.860e-02   1.454
+GarageType_Detchd      8.479e-03   1.677
+MSSubClass_90          2.306e-02  -1.597
+SaleType_WD            1.920e-02  -3.144
+SaleType_COD           2.456e-02  -2.204
+                      Pr(>|t|)    
+(Intercept)           2.70e-05 ***
+LotArea                < 2e-16 ***
+OverallQual            < 2e-16 ***
+YearBuilt             1.56e-15 ***
+YearRemodAdd          1.53e-05 ***
+BsmtFinSF2            0.003263 ** 
+BsmtUnfSF             6.91e-10 ***
+TotalBsmtSF            < 2e-16 ***
+X1stFlrSF             0.000113 ***
+X2ndFlrSF             2.92e-09 ***
+GrLivArea             8.91e-07 ***
+BsmtFullBath          0.026723 *  
+FullBath              0.003963 ** 
+HalfBath              0.008954 ** 
+KitchenAbvGr          0.007966 ** 
+Fireplaces            7.22e-05 ***
+GarageCars            0.001924 ** 
+GarageArea            0.032180 *  
+WoodDeckSF            0.000596 ***
+OpenPorchSF           0.057939 .  
+EnclosedPorch         0.011215 *  
+ScreenPorch           2.30e-05 ***
+PoolArea              0.007302 ** 
+MiscVal               0.100255    
+Haspool               0.008659 ** 
+HasGarage             0.118467    
+MSSubClass_120        0.152425    
+MSSubClass_160        4.93e-05 ***
+MSSubClass_20         0.141360    
+MSSubClass_45         0.055644 .  
+MSSubClass_60         0.010052 *  
+MSZoning_C..all.       < 2e-16 ***
+MSZoning_FV           9.37e-13 ***
+MSZoning_RH           0.009604 ** 
+MSZoning_RL           4.83e-07 ***
+LotShape_IR1          0.072457 .  
+LotConfig_Corner      0.082835 .  
+LotConfig_CulDSac     0.004725 ** 
+LotConfig_FR2         0.117759    
+LandSlope_Gtl         5.21e-05 ***
+LandSlope_Mod         1.21e-05 ***
+Neighborhood_Blueste  0.090117 .  
+Neighborhood_BrDale   0.012221 *  
+Neighborhood_BrkSide  0.000358 ***
+Neighborhood_Crawfor  5.47e-15 ***
+Neighborhood_Edwards  1.54e-05 ***
+Neighborhood_Mitchel  0.004032 ** 
+Neighborhood_NAmes    0.127636    
+Neighborhood_NWAmes   0.017635 *  
+Neighborhood_NoRidge  0.001607 ** 
+Neighborhood_NridgHt  0.000747 ***
+Neighborhood_StoneBr  1.76e-08 ***
+Condition1_Artery     1.64e-07 ***
+Condition1_Feedr      0.000958 ***
+Condition1_RRAe       4.96e-07 ***
+Condition1_RRAn       0.103178    
+Condition2_Artery     0.064281 .  
+Condition2_PosA       0.009402 ** 
+Condition2_RRAe       0.003049 ** 
+HouseStyle_1.5Unf     0.016501 *  
+HouseStyle_1Story     0.113398    
+OverallCond_3          < 2e-16 ***
+OverallCond_4         3.51e-12 ***
+OverallCond_5         1.32e-09 ***
+OverallCond_6         8.44e-06 ***
+OverallCond_7         0.006491 ** 
+OverallCond_8         0.049095 *  
+RoofStyle_Flat        0.008431 ** 
+RoofStyle_Gable       0.007629 ** 
+RoofStyle_Gambrel     0.003678 ** 
+RoofStyle_Hip         0.008953 ** 
+RoofStyle_Mansard     0.026173 *  
+RoofMatl_Membran      0.001557 ** 
+RoofMatl_Metal        0.081593 .  
+Exterior1st_BrkComm   0.002797 ** 
+Exterior1st_BrkFace   0.000768 ***
+Exterior1st_CemntBd   0.112142    
+Exterior1st_HdBoard   0.009374 ** 
+Exterior1st_Plywood   0.092032 .  
+Exterior1st_Wd.Sdng   0.000806 ***
+Exterior2nd_Brk.Cmn   0.021415 *  
+Exterior2nd_CmentBd   0.169237    
+Exterior2nd_Wd.Sdng   0.019754 *  
+MasVnrType_BrkCmn     0.045927 *  
+MasVnrType_BrkFace    0.019791 *  
+MasVnrType_None       0.002265 ** 
+ExterCond_Gd          0.057028 .  
+ExterCond_Po          0.034080 *  
+Foundation_BrkTil     0.037673 *  
+Foundation_CBlock     0.012447 *  
+Foundation_PConc      0.006707 ** 
+Foundation_Slab       0.015998 *  
+Foundation_Stone      0.001396 ** 
+BsmtQual_Ex           0.001862 ** 
+BsmtQual_Fa           0.140339    
+BsmtCond_Fa           0.035769 *  
+BsmtCond_Po           0.016429 *  
+BsmtExposure_Gd       3.97e-07 ***
+BsmtFinType1_ALQ      0.014432 *  
+BsmtFinType1_BLQ      0.044542 *  
+BsmtFinType1_GLQ      0.002363 ** 
+BsmtFinType2_ALQ      0.117621    
+Heating_Floor         0.109294    
+Heating_GasA          0.043745 *  
+Heating_Grav          1.76e-06 ***
+HeatingQC_Ex          0.000481 ***
+CentralAir_N          0.002795 ** 
+Electrical_FuseA      0.088537 .  
+Electrical_FuseP      0.139623    
+KitchenQual_Ex        2.95e-08 ***
+Functional_Maj1       0.044295 *  
+Functional_Maj2       1.04e-08 ***
+Functional_Min1       0.032547 *  
+Functional_Min2       0.003971 ** 
+Functional_Mod        2.16e-06 ***
+Functional_Sev        0.001158 ** 
+FireplaceQu_Fa        0.074535 .  
+GarageType_2Types     0.000125 ***
+GarageQual_Ex         0.000199 ***
+GarageQual_Fa         0.105450    
+GarageCond_Ex         0.027930 *  
+GarageCond_Fa         0.035781 *  
+Fence_GdWo            0.059538 .  
+MiscFeature_Gar2      0.108658    
+MiscFeature_Shed      0.118684    
+MoSold_5              0.043594 *  
+MoSold_6              0.017541 *  
+MoSold_7              0.047554 *  
+YrSold_2009           0.021581 *  
+SaleType_New          0.125542    
+SaleCondition_AdjLand 0.032630 *  
+SaleCondition_Normal  5.17e-08 ***
+Alley_Pave            0.146256    
+GarageType_Detchd     0.093746 .  
+MSSubClass_90         0.110571    
+SaleType_WD           0.001701 ** 
+SaleType_COD          0.027688 *  
+---
+Signif. codes:  
+  0 '***' 0.001 '**' 0.01 '*' 0.05 '.'
+  0.1 ‘ ’ 1
+
+Residual standard error: 0.09348 on 1321 degrees of freedom
+Multiple R-squared:  0.9504,	Adjusted R-squared:  0.9453 
+F-statistic: 186.2 on 136 and 1321 DF,  p-value: < 2.2e-16

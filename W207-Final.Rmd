@@ -5,8 +5,13 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-data <- read.csv("train_data.csv", header=TRUE, sep=",")
+library(skimr)
+library(tidyverse)
+library(caret)
+library(leaps)
+library(MASS)
+data <- read.csv("train.csv", header=TRUE, sep=",")
+newData <- read.csv("train_new.csv", header=TRUE, sep=",")
 ```
 
 ## R Markdown
@@ -16,8 +21,8 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r cars}
-data
-
+hist(data$SalePrice)
+newData
 ```
 
 ## Including Plots
@@ -25,7 +30,40 @@ data
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+lmMod <- lm(SalePrice ~ . , data = newData)
+selectedMod <- step(lmMod, trace = FALSE, direction = "both")
+summary(selectedMod)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r pressure, echo=FALSE}
+pval <- 0.05
+# summary(selectedMod)$coefficients[,4]
+bonf.corrected <-  0.05/length(summary(selectedMod)$coefficients[,4] )
+add.in.model <- summary(selectedMod)$coefficients[,4] < bonf.corrected 
+# add.in.model
+# The amount that are TRUE
+length(which(add.in.model==TRUE))
+which(add.in.model==TRUE)
+```
+
+```{r}
+(Intercept)              LotArea          OverallQual            YearBuilt 
+                   1                    2                    3                    4 
+        YearRemodAdd            BsmtUnfSF          TotalBsmtSF            X1stFlrSF 
+                   5                    7                    8                    9 
+           X2ndFlrSF            GrLivArea           Fireplaces          ScreenPorch 
+                  10                   11                   16                   22 
+      MSSubClass_160     MSZoning_C..all.          MSZoning_FV          MSZoning_RL 
+                  28                   32                   33                   35 
+       LandSlope_Gtl        LandSlope_Mod Neighborhood_BrkSide Neighborhood_Crawfor 
+                  40                   41                   44                   45 
+                  46                   52                   53                   55 
+       OverallCond_3        OverallCond_4        OverallCond_5        OverallCond_6 
+                  62                   63                   64                   65 
+     BsmtExposure_Gd         Heating_Grav       KitchenQual_Ex      Functional_Maj2 
+                  98                  105                  110                  112 
+      Functional_Mod    GarageType_2Types        GarageQual_Ex SaleCondition_Normal 
+                 115                  118                  119                  132 
+```
+
